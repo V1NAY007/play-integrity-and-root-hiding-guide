@@ -129,7 +129,7 @@ Meta Module → Zygisk → Pixel Fingerprint Spoofing → TEE Spoofing → Trick
 
 ## Module-Specific Settings
 
-> Only modules used by the author are covered here. If a module/setting isn't mentioned, leave it at default.
+> Only modules used by me are covered here. If a module/setting isn't mentioned, leave it at default.
 
 ### Pixel Fingerprint Spoofing
 
