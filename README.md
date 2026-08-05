@@ -2,7 +2,7 @@
 
 **By [@V1NAY007](https://github.com/V1NAY007)**
 
-**Last Updated:** 21/06/2026
+**Last Updated:** 05/08/2026
 
 A complete guide to passing strong Play Integrity and properly hiding root, in order to use banking apps on a rooted device.
 
@@ -48,7 +48,7 @@ A modern kernel-based root solution. Does not come with Zygisk built in. Non-GKI
 > ✅ **Recommended**
 
 - Requires Meta Modules *(Exception: SukiSU Ultra)*
-- Examples: [KernelSU](https://github.com/tiann/KernelSU), [KernelSU Next](https://github.com/KernelSU-Next/KernelSU-Next), [SukiSU Ultra](https://github.com/SukiSU-Ultra/SukiSU-Ultra), KOWSU
+- Examples: [KernelSU](https://github.com/tiann/KernelSU), [KernelSU Next](https://github.com/KernelSU-Next/KernelSU-Next), [SukiSU Ultra](https://github.com/SukiSU-Ultra/SukiSU-Ultra), [ReSukiSu](https://github.com/ReSukiSU/ReSukiSU), KOWSU
 
 ### 3. APatch
 Not well documented in this guide — limited firsthand experience with this option.
@@ -64,14 +64,14 @@ Not well documented in this guide — limited firsthand experience with this opt
 > **Just download these modules — do not flash yet.** Flashing order is covered [below](#flashing-order).
 
 ### 1. Meta Modules
-Pick **one**: [Hybrid Mount](https://github.com/Hybrid-Mount/meta-hybrid_mount), [Magic Mount](https://github.com/KernelSU-Modules-Repo/magic_mount_rs), [OverlayFS](https://github.com/KernelSU-Modules-Repo/meta-overlayfs) *(I use Hybrid Mount)*.
+Pick **one**: [Hybrid Mount](https://github.com/Hybrid-Mount/meta-hybrid_mount), [Magic Mount](https://github.com/Tools-cx-app/meta-magic_mount-rs), [OverlayFS](https://github.com/KernelSU-Modules-Repo/meta-overlayfs) *(I use Hybrid Mount)*.
 
 Required with KernelSU and its forks to use most modern modules that mount data.
 
 > **Note:** Only required if you use KernelSU or its forks (except SukiSU Ultra).
 
 ### 2. Zygisk Framework
-Pick **one**: [ReZygisk](https://github.com/PerformanC/ReZygisk), [Zygisk Next](https://github.com/Dr-TSNG/ZygiskNext) *(I use ReZygisk)*.
+Pick **one**: [ReZygisk](https://github.com/PerformanC/ReZygisk), [Zygisk Next](https://github.com/Dr-TSNG/ZygiskNext) *(I use [ReZygisk CI](https://t.me/rezygisk_ci))*.
 
 Required by many modules that depend on Zygisk, such as PIF and HMA-OSS.
 
@@ -87,7 +87,7 @@ Spoofs the device fingerprint to a Pixel device on the latest security patch, so
 > Requires Zygisk.
 
 ### 4. TEE Spoofing
-Pick **one**: [TrickyStore](https://github.com/5ec1cff/TrickyStore), [TEE-Simulator](https://github.com/JingMatrix/TEESimulator), [TEE-Simulator-RS](https://github.com/Enginex0/TEESimulator-RS) *(I use TEE-Simulator-RS)*.
+Pick **one**: [TrickyStore](https://github.com/5ec1cff/TrickyStore), [TrickStore-OSS](https://github.com/beakthoven/TrickyStoreOSS), [TEE-Simulator](https://github.com/JingMatrix/TEESimulator), [TEE-Simulator-RS](https://github.com/Enginex0/TEESimulator-RS), [OhMyKeymint](https://github.com/qwq233/OhMyKeymint) *(I use OhMyKeymint or TEESimulator-RS)*.
 
 Spoofs TEE (Trusted Execution Environment) status as "bootloader locked" using a keybox, configurable per app via a target list.
 
@@ -95,27 +95,26 @@ Spoofs TEE (Trusted Execution Environment) status as "bootloader locked" using a
 > **Note:** Only required for Scenario 2, 3, and 4.
 
 ### 5. Tricky Addon
-Pick **one**: [TrickyAddon](https://github.com/KOWX712/Tricky-Addon-Update-Target-List), [TrickyAddon Enhanced](https://github.com/Enginex0/tricky-addon-enhanced) *(I use TrickyAddon Enhanced)*.
+Pick **one**: [TrickyAddon](https://github.com/KOWX712/Tricky-Addon-Update-Target-List) *(I use TrickyAddonCanary)*.
 
 Provides an easy-to-use WebUI for managing the TEE spoofing module — target list and keyboxes — without manual config edits.
 
 > **Note:** Optional, but recommended alongside a TEE spoofing module.
 
 ### 6. Applist Hiding
-Pick **one**: [Hide My Applist (HMA)](https://github.com/Dr-TSNG/Hide-My-Applist), [HMA-OSS (Hide My Applist – Open Source)](https://t.me/buggychat/87330?single) *(I use HMA-OSS)*.
+Pick **one**: [Hide My Applist (HMA)](https://github.com/Dr-TSNG/Hide-My-Applist), [HMA-OSS (Hide My Applist – Open Source)](https://github.com/frknkrc44/HMA-OSS) *(I use HMA-OSS)*.
 
 Hides rooted apps and root management tools from detection by other apps.
 
 > **Note:** Only required for Scenario 3 and 4.
 > Requires Zygisk.
-> HMA OSS comes in two variants: Zygisk(Recommended and link provided) and LSposed.
 
 ---
 
 ## Extra Information Regarding Scenarios
 
 1. Even in Scenario 1, 2, or 3, you can still use standalone Fingerprint Spoofing and TEE Spoofing modules by disabling the ROM's built-in fingerprint spoofing and TrickyStore. *(Not recommended.)*
-2. Do **not** flash an Applist Hiding module if your ROM already has Sandbox built in — it already includes HMA-OSS functionality.
+2. You can still use Applist Hiding modules in Scenario 1 and 2, but make sure to leave Sandbox untouched(as they may cause conflicts).
 
 ---
 
@@ -141,6 +140,8 @@ Meta Module → Zygisk → Pixel Fingerprint Spoofing → TEE Spoofing → Trick
 - Tick **Auto Security Patch**
 - Fetch a random fingerprint using **AutoPIF**
 
+*To make Canara Ai1pe visible in playstore, choose Pixel Fold Canary Fingerprint.*
+
 ### TEE Spoofing
 
 **TrickyStore Inbuilt (Scenario 1):**
@@ -149,11 +150,10 @@ Meta Module → Zygisk → Pixel Fingerprint Spoofing → TEE Spoofing → Trick
 - Add any apps you want spoofed as "bootloader locked" to the Target List (e.g. banking apps)
 - Force-stop Play Store after adding it to the target list or adding a new keybox
 
-**TEE-Simulator-RS:**
-- During flashing, choose **Auto** or **Manual** mode — Auto adds apps to the target list automatically as you install them; Manual requires adding them yourself
+**TEE-Simulator-RS/OhMyKeymint:**
 - Open the WebUI, tick **Play Store** and **Play Services**
 - Tick banking apps and any other apps you want spoofed as "bootloader locked"
-- Use the keybox automation option (⋮ menu) to automatically fetch valid keyboxes from your chosen sources *(this can be unreliable — untick it and use a custom keybox if needed)*
+- Go to options (⋮ menu) -> Keybox -> Repo to get valid keyboxes from various sources.
 - Force-stop Play Store after adding it to the target list or adding a new keybox
 
 ### Applist Hiding
@@ -180,6 +180,7 @@ Meta Module → Zygisk → Pixel Fingerprint Spoofing → TEE Spoofing → Trick
 | Axis Bank | Untick from TEE Spoofing |
 | Canara ai1 | Untick from TEE Spoofing |
 
+*All of them also work if tick in **OhMyKeymint**, rest other TEE modules need to untick*
 ---
 
 ## Troubleshooting
