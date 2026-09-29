@@ -87,7 +87,7 @@ Spoofs the device fingerprint to a Pixel device on the latest security patch, so
 > Requires Zygisk.
 
 ### 4. TEE Spoofing
-Pick **one**: [TrickyStore](https://github.com/5ec1cff/TrickyStore), [TrickStore-OSS](https://github.com/beakthoven/TrickyStoreOSS), [TEE-Simulator](https://github.com/JingMatrix/TEESimulator), [TEE-Simulator-RS](https://github.com/Enginex0/TEESimulator-RS), [OhMyKeymint](https://github.com/qwq233/OhMyKeymint) *(I use OhMyKeymint or TEESimulator-RS)*.
+Pick **one**: [TrickyStore](https://github.com/5ec1cff/TrickyStore), [TrickStore-OSS](https://github.com/beakthoven/TrickyStoreOSS), [TEE-Simulator](https://github.com/JingMatrix/TEESimulator), [TEE-Simulator-RS](https://github.com/Enginex0/TEESimulator-RS), [OhMyKeymint](https://github.com/qwq233/OhMyKeymint) *(I use TrickyStore-OSS or TEESimulator)*.
 
 Spoofs TEE (Trusted Execution Environment) status as "bootloader locked" using a keybox, configurable per app via a target list.
 
